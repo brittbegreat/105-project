@@ -1,0 +1,124 @@
+
+ package com.sg.rockpaperscissors;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class RockPaperScissors {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Random random = new Random();
+        int computerScore = 0;
+        int userScore = 0;
+        int inputRounds = 0;
+        int tieScore = 0;
+        int i = 1;
+        boolean yes = true;
+        boolean no = false;
+        
+        
+        
+       
+        
+        while (1 == i) {
+        System.out.println("HOW MANY GAMES WOULD YOU LIKE TO PLAY?");
+        inputRounds = sc.nextInt();
+
+        while (inputRounds < 1 || inputRounds > 10) {
+
+            System.out.println(" Invalid choice. Choices are between 1 and 10 (1-10). Ending program.");
+            System.exit(0);
+        }
+        while (i <= inputRounds ) {
+            int computerPick = random.nextInt(3) + 1;
+
+            System.out.println("*************************************************");
+            System.out.println("Pick 1 for rock, 2 for paper or 3 for scissors");
+            int userPick = sc.nextInt();
+
+            if (userPick == computerPick) {
+                System.out.println("T I E");
+                tieScore++;
+                System.out.println("Computer and player both picked " + userPick);
+                System.out.println("Computer total: " + computerScore);
+                System.out.println("Player total: " + userScore);
+                System.out.println("Tie total: " + tieScore);
+                
+                System.out.println("No points!");
+            } else if (userPick == 1) {
+                if (computerPick == 2) {
+                    System.out.println("Computer picked paper; You chose rock. Sorry, you lost!.");
+                    computerScore++;
+                    System.out.println("Computer wins + 1 point");
+                    System.out.println("Computer total: " + computerScore);
+                    System.out.println("Player total : " + userScore);
+                    System.out.println("Tie total: " + tieScore);
+
+                } else if (computerPick == 3) {
+                    System.out.println("Computer picked scissors; You chose rock!!");
+                    userScore++;
+                    System.out.println("Congrats YOU win + 1 point!");
+                    System.out.println("Computer total: " + computerScore);
+                    System.out.println("Player total: " + userScore);
+                    System.out.println("Tie total: " + tieScore);
+
+                }
+            } else if (userPick == 2) {
+                if (computerPick == 3) {
+                    System.out.println("Computer picked scissors; You chose paper. Sorry you lost!!");
+                    computerScore++;
+                    System.out.println("Computer wins + 1 point");
+                    System.out.println("Computer total: " + computerScore);
+                    System.out.println("Player total : " + userScore);
+                    System.out.println("Tie total: " + tieScore);
+
+                } else if (computerPick == 3) {
+                    System.out.println("Computer picked rock; You chose paper!");
+                    userScore++;
+                    System.out.println("Congrats You win + 1 point!");
+                    System.out.println("Computer total: " + computerScore);
+                    System.out.println("Player total: " + userScore);
+                    System.out.println("Tie total: " + tieScore);
+                }
+            } else if (userPick == 3) {
+                if (computerPick == 1) {
+                    System.out.println("Computer picked rock; You chose scissors. Sorry, you lost!.");
+                    computerScore++;
+                    System.out.println("Computer wins + 1 point");
+                    System.out.println("Computer total: " + computerScore);
+                    System.out.println("Player total: " + userScore);
+                    System.out.println("Tie total: " + tieScore);
+
+                } else if (computerPick == 2) {
+                    System.out.println("Computer picked paper; You chose scissors!!");
+                    userScore++;
+                    System.out.println("Congrats YOU win + 1 point!");
+                    System.out.println("Computer total: " + computerScore);
+                    System.out.println("Player total: " + userScore);
+                    System.out.println("Tie total: " + tieScore);  
+                }
+                
+               
+            }
+            i++;
+        }if (userScore > computerScore) {
+            System.out.println("**********************************");
+         System.out.println("P L A Y E R   W I N S  G A M E!!");
+     }else if (userScore < computerScore) {
+         System.out.println("*************************************");
+         System.out.println("S O R R Y, C O M P U T E R   W I N S!!");
+     }
+        
+            System.out.println("*************************************");
+            System.out.println("Would You Like to Play Again? ");
+            System.out.println("Choose 1 for YES, 2 for NO.");
+            sc.nextBoolean();
+          
+        }
+          System.out.println("Thanks For Playing!");
+        System.exit(0);  
+        
+        
+    }
+}
